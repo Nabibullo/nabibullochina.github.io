@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Nabibullo China | Education & Grants</title>
+
+<style>
+:root{
+    --main:#111827;
+    --accent:#2563eb;
+    --light:#f9fafb;
+}
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family: -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif;
+}
+
+body{
+    background:var(--light);
+    color:var(--main);
+}
+
+nav{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    padding:20px 8%;
+    background:white;
+    box-shadow:0 2px 10px rgba(0,0,0,0.05);
+    position:sticky;
+    top:0;
+}
+
+.logo{
+    font-weight:700;
+    font-size:20px;
+}
+
+.lang button{
+    border:none;
+    background:none;
+    margin-left:10px;
+    cursor:pointer;
+    font-weight:600;
+}
+
+.hero{
+    padding:100px 8%;
+    text-align:center;
+    background:linear-gradient(to right,#111827,#1f2937);
+    color:white;
+}
+
+.hero h1{
+    font-size:48px;
+    margin-bottom:20px;
+}
+
+.hero p{
+    font-size:20px;
+    opacity:0.9;
+    margin-bottom:30px;
+}
+
+.btn{
+    padding:14px 28px;
+    border:none;
+    border-radius:8px;
+    font-weight:600;
+    cursor:pointer;
+    margin:5px;
+    transition:0.3s;
+}
+
+.primary{
+    background:var(--accent);
+    color:white;
+}
+
+.primary:hover{
+    background:#1e40af;
+}
+
+.secondary{
+    background:white;
+    color:var(--main);
+}
+
+.section{
+    padding:80px 8%;
+    text-align:center;
+}
+
+.cards{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+    gap:30px;
+    margin-top:40px;
+}
+
+.card{
+    background:white;
+    padding:40px;
+    border-radius:15px;
+    box-shadow:0 10px 30px rgba(0,0,0,0.05);
+}
+
+footer{
+    padding:40px;
+    text-align:center;
+    background:#111827;
+    color:white;
+}
+</style>
+</head>
+<body>
+
+<nav>
+<div class="logo">nabibullo_china</div>
+<div class="lang">
+<button onclick="setLang('ru')">RU</button>
+<button onclick="setLang('en')">EN</button>
+<button onclick="setLang('zh')">中文</button>
+</div>
+</nav>
+
+<section class="hero">
+<h1 id="title">Обучение в Китае и гранты</h1>
+<p id="subtitle">Профессиональная подготовка • Бизнес образование • Поступление в университеты Китая</p>
+<a href="https://www.instagram.com/nabibullo_china" target="_blank">
+<button class="btn secondary">Instagram</button>
+</a>
+<a href="https://t.me/nabibullochina" target="_blank">
+<button class="btn primary">Telegram</button>
+</a>
+</section>
+
+<section class="section">
+<h2 id="aboutTitle">О проекте</h2>
+
+<div class="cards">
+<div class="card">
+<h3 id="card1Title">Китайский язык</h3>
+<p id="card1Text">Подготовка HSK 1–5. Онлайн обучение и сопровождение.</p>
+</div>
+
+<div class="card">
+<h3 id="card2Title">Гранты</h3>
+<p id="card2Text">Обучение бесплатно + проживание + 1000 юаней стипендия.</p>
+</div>
+
+<div class="card">
+<h3 id="card3Title">Бизнес в Китае</h3>
+<p id="card3Text">Предпринимательство и международные возможности.</p>
+</div>
+</div>
+</section>
+
+<footer>
+<p id="footerText">© 2026 Nabibullo China Academy. Все права защищены.</p>
+</footer>
+
+<script>
+const translations = {
+ru:{
+title:"Обучение в Китае и гранты",
+subtitle:"Профессиональная подготовка • Бизнес образование • Поступление в университеты Китая",
+aboutTitle:"О проекте",
+card1Title:"Китайский язык",
+card1Text:"Подготовка HSK 1–5. Онлайн обучение и сопровождение.",
+card2Title:"Гранты",
+card2Text:"Обучение бесплатно + проживание + 1000 юаней стипендия.",
+card3Title:"Бизнес в Китае",
+card3Text:"Предпринимательство и международные возможности.",
+footerText:"© 2026 Nabibullo China Academy. Все права защищены."
+},
+en:{
+title:"Study in China & Scholarships",
+subtitle:"Professional preparation • Business education • University admission support",
+aboutTitle:"About Project",
+card1Title:"Chinese Language",
+card1Text:"HSK 1–5 preparation. Online learning and support.",
+card2Title:"Scholarships",
+card2Text:"Free tuition + accommodation + 1000 RMB monthly stipend.",
+card3Title:"Business in China",
+card3Text:"Entrepreneurship and international opportunities.",
+footerText:"© 2026 Nabibullo China Academy. All rights reserved."
+},
+zh:{
+title:"中国留学与奖学金",
+subtitle:"专业培训 • 商业教育 • 中国大学申请支持",
+aboutTitle:"关于项目",
+card1Title:"汉语课程",
+card1Text:"HSK 1–5 备考与在线辅导。",
+card2Title:"奖学金",
+card2Text:"学费全免 + 住宿免费 + 每月1000元奖学金。",
+card3Title:"中国商业",
+card3Text:"创业与国际发展机会。",
+footerText:"© 2026 Nabibullo China Academy 版权所有"
+}
+};
+
+function setLang(lang){
+for (let key in translations[lang]){
+document.getElementById(key).innerText = translations[lang][key];
+}
+}
+</script>
+
+</body>
+</html>
